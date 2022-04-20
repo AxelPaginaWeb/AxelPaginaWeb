@@ -1,789 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="Style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <title></title>
 </head>
 
+
+
+<body>
 <style>
-  body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    background: #000;
+  body {
+  background: black;
 }
-.container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-flex;
-    filter: brightness(300%);
-    overflow: hidden;
+
+.container {
+  border: 2px solid white;
+  box-shadow: inset 0 0 5px red, 0 0 10px red;
+  border-radius: 60px;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 140px;
+  padding: 20px;
+  text-align: center;
+  color: white;
 }
-.txt{
-    color: #fff;
-    background: #000;
-    font-size: 150px;
-    font-weight: bold;
+
+.neon {
+  font-family: "Dancing Script", cursive;
+  margin: 0;
+  font-size: 50px;
+  text-shadow: 0 0 5px red, 0 0 15px red, 0 0 30px red, 0 0 50px red;
 }
-.txt:before{
-    content: 'Jorge&Josue';
-    position: absolute;
-    mix-blend-mode: difference;
-    filter: blur(2px);
+
+.neon2 {
+  font-family: monospace;
+  letter-spacing: 8px;
+  margin: 0;
+  font-size: 100px;
+  text-shadow: 0 0 5px yellow, 0 0 15px yellow, 0 0 30px yellow;
 }
-.txt_gradient{
+
+.neon3 {
+  font-family: monospace;
+  margin: 0;
+  font-size: 20px;
+  text-shadow: 0 0 5px white, 0 0 15px white, 0 0 30px white;
+}
+
+.flicker1 {
+  animation: parpadear 2s infinite backwards steps(3);
+}
+.flicker2 {
+  animation: parpadear 2.5s infinite backwards steps(4);
+}
+.flicker3 {
+  animation: parpadear 1.5s infinite backwards steps(2);
+}
+
+@keyframes parpadear {
+  to {
+    color: gray;
+    text-shadow: none;
+  }
+} 
+.Boton {
+    color: #0a0a0a !important;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #fff;
+    border: 2px solid;
+    border-color: #ffffff;
+    transition: all 1s ease;
+    position: relative;
+}
+
+.Boton:hover {
+background: #0a0a0a;
+color: #fff !important;
+}
+a {
+    position: relative; /* Posicionamiento relativo */
+    padding: 10px 30px;
+    margin: 30px;
+    color: #21ebff; /* color */
+    text-decoration: none; /* Estilo de fuente adicional (eliminar subrayado) * /
+    text-transform: uppercase; /* Fuente en mayúsculas * /
+    letter-spacing: 2px; /* Espaciado entre caracteres */
+    font-size: 20px;
+    transition: 0.5s; /* Tiempo de transición */
+    overflow: hidden; /* Más allá de lo oculto * /
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); /* Espejo */
+  }
+  a:nth-child(1) {
+    filter: hue-rotate(115deg); /* Conversión de tono */
+  }
+  a:nth-child(3) {
+    filter: hue-rotate(270deg);
+  }
+  a:hover {
+    background: #21ebff;
+    color: #111;
+    box-shadow: 0 0 50px #212121; /* Sombra (X, Y, desenfoque, color) */
+    transition-delay: 0.5s; /* tiempo de espera */
+  }
+  a::before { /* Agregar antes (borde superior izquierdo) */
+    content: ''; /* Contenido */
     position: absolute;
     top: 0;
     left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #21ebff; /* Borde superior */
+    border-left: 2px solid #21ebff;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+  }
+  
+  a::after { /* Agregar después (borde inferior derecho) */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #21ebff;
+    border-right: 2px solid #21ebff;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+  }
+  a:hover::before,a:hover::after {
+    /* Mueve la línea del borde modificando el ancho y el alto */
     width: 100%;
     height: 100%;
-    mix-blend-mode: multiply;
-    background: linear-gradient(114.5793141156962deg, 
-                rgb(6, 112, 250) 4.927083333333334%,
-                rgb(255, 0, 64) 97.84374999999999%);
-}
-.txt_dodge{
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    right: 0;
-    bottom: 0;
-    mix-blend-mode: color-dodge;
-    background: radial-gradient(circle,white,black 35%) 
-                center / 25% 25%;
-    animation: neon 3s linear infinite;
-}
-@keyframes neon{
-    to{
-        transform: translate(50%, 50%);
-    }
-}
-.colorplate {
-    position: absolute;
-    background: #292463;
-    top: 0;
-    width: 100%;
-    text-align: right;
-    padding: 15px 15px;
-}
-.colorplate span {
-    display: inline-block;
-    padding: 5px 15px;
-    cursor: pointer;
-    border-radius: 50px;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-span{
-	background: #9b59b6;
-}
-span#POMEGRANATE{
-	background: #c0392b;
-}
-a {
-    display: inline-block;
-    position: relative;
-    padding: 20px 60px;
-    letter-spacing: 5px;
-    text-decoration: none;
-    font-size: 24px;
-    text-transform: uppercase;
-    overflow: hidden;
-    color: #0ab0ff;
-    transition: 0.5s;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
-}
-a:hover{
-	background: #0ab0ff;
-	cursor: pointer;
-	color: #443bab;
-	box-shadow: 0 0 5px #0ab0ff,
-				0 0 25px #00aefffb,
-				0 0 50px #0ab0ff,
-				0 0 200px #0ab0ff;
-}
-a span{
-	position: absolute;
-	display: block;
-}
-/**/
-a span:nth-child(1){
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(90deg, transparent,#0ab0ff);
-	animation: animate1 1s linear infinite;
-}
-@keyframes animate1
-{
-	0%
-	{
-		left: -100%;
-	}
-	50%,100%
-	{
-		left: 100%;	
-	}
-}
-/**/
-a span:nth-child(2){
-	top: -100%;
-	right: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(180deg, transparent,#0ab0ff);
-	animation: animate2 1s linear infinite;
-	animation-delay: 0.25s
-}
-@keyframes animate2
-{
-	0%
-	{
-		top: -100%;
-	}
-	50%,100%
-	{
-		top: 100%;
-	}
-}
-/**/
-a span:nth-child(3){
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(270deg, transparent,#0ab0ff);
-	animation: animate3 1s linear infinite;
-	animation-delay: 0.5s;
-}
-@keyframes animate3
-{
-	0%
-	{
-		right: -100%;
-	}
-	50%,100%
-	{
-		right: 100%;	
-	}
-}
-/**/
-a span:nth-child(4){
-	bottom: -100%;
-	left: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(360deg, transparent,#0ab0ff);
-	animation: animate4 1s linear infinite;
-	animation-delay: 0.75s;
-}
-@keyframes animate4
-{
-	0%
-	{
-		bottom: -100%;
-	}
-	50%,100%
-	{
-		bottom: 100%;	
-	}
-}
-
-
-/**/
-a {
-    display: inline-block;
-    position: relative;
-    padding: 20px 60px;
-    letter-spacing: 5px;
-    text-decoration: none;
-    font-size: 24px;
-    text-transform: uppercase;
-    overflow: hidden;
-    color: #0ab0ff;
-    transition: 0.5s;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
-}
-a:hover{
-	background: #0ab0ff;
-	cursor: pointer;
-	color: #443bab;
-	box-shadow: 0 0 5px #0ab0ff,
-				0 0 25px #0ab0ff,
-				0 0 50px #0ab0ff,
-				0 0 200px #0ab0ff;
-}
-a span{
-	position: absolute;
-	display: block;
-}
-/**/
-a span:nth-child(1){
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(90deg, transparent,#0ab0ff);
-	animation: animate1 1s linear infinite;
-}
-@keyframes animate1
-{
-	0%
-	{
-		left: -100%;
-	}
-	50%,100%
-	{
-		left: 100%;	
-	}
-}
-/**/
-a span:nth-child(2){
-	top: -100%;
-	right: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(180deg, transparent,#0ab0ff);
-	animation: animate2 1s linear infinite;
-	animation-delay: 0.25s
-}
-@keyframes animate2
-{
-	0%
-	{
-		top: -100%;
-	}
-	50%,100%
-	{
-		top: 100%;
-	}
-}
-/**/
-a span:nth-child(3){
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(270deg, transparent,#0ab0ff);
-	animation: animate3 1s linear infinite;
-	animation-delay: 0.5s;
-}
-@keyframes animate3
-{
-	0%
-	{
-		right: -100%;
-	}
-	50%,100%
-	{
-		right: 100%;	
-	}
-}
-/**/
-a span:nth-child(4){
-	bottom: -100%;
-	left: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(360deg, transparent,#0ab0ff);
-	animation: animate4 1s linear infinite;
-	animation-delay: 0.75s;
-}
-@keyframes animate4
-{
-	0%
-	{
-		bottom: -100%;
-	}
-	50%,100%
-	{
-		bottom: 100%;	
-	}
-}
+    /* Tiempo de espera 0, muévase directamente para evitar que el botón cambie de color primero */
+    transition-delay: 0s;
+  }
 </style>
+  <div class="container">
+    <h1 class="neon">•. RV-RA .•</h1>
+    <p class="neon2">Axel</p>
+    <p class="neon3">
+      <span class="flicker1">♣</span>
+      <span class="flicker2">♣</span>
+      <span class="flicker3">♣</span>
+    </p>
+  </div>
+</br>
+</br>
+<font color="White">
 
-<body>
-    <div class="container">
-        <span class="txt">Jorge&Josue</span>
-        <span class="txt_gradient"></span>
-        <span class="txt_dodge"></span>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div align="center"> <font face="Arial Black", size="5", color="White">DIFERENCIAS ENTRE REALIDAD AUMENTADA Y REALIDAD VIRTUAL</font> </div>
-    <br>
-    <font color="White">
+<font face="Arial Black", size="5"><div align="center">QUE ES LA REALIDAD AUMENTADA?</div></font>
+La Realidad Aumentada (RA) es una tecnología que permite superponer elementos virtuales sobre nuestra visión de la realidad. Cada vez más demandada, en 2020 se convertirá en un negocio que roce los 120.000 millones de dólares a nivel mundial.
+
+<div align="center"><image src="https://i.pinimg.com/474x/ff/08/48/ff08487afb961607790800814e5a91c0.jpg"></image> </div>
+<br>
+<br>
 <div align="center">
-  La real virtual o VR se diferencia del resto por ser en la que te sumerges por completo en un mundo virtual. Esto quiere decir que te permite simular una experiencia sensorial completa dentro de un ambiente artificial sin que veas nada de lo que hay en el exterior. Para "meterte dentro" de este mundo virtual sueles necesitar tanto unas gafas especiales como unos auriculares.
+  El término lo acuñó en 1992 el científico e investigador Thomas P. Caudell mientras desarrollaba uno de los aviones más famosos del mundo: el Boeing 747. Caudell observó que los operarios encargados del ensamblaje de la nueva aeronave perdían demasiado tiempo interpretando las instrucciones y pensó: ¿Qué pasaría si tuvieran acceso a una pantalla que les guiase durante la instalación? El invento no triunfó, pero en ese preciso momento nacía el concepto de Realidad AumentadaEnlace externo, se abre en ventana nueva. (RA).
 
-Estas gafas tienen que estar especialmente diseñadas para esta realidad, y tener una pantalla que se monte justo delante de tus ojos. Hay dos tipos de gafas, las que tienen su propia pantalla incorporada como las Oculus Rift o las que necesitan que incorpores un smartphone para hacer de pantalla, como por ejemplo las Gear VR de Samsung.
+Surgía entonces y no en el verano de 2016, como muchos creemos, cuando nos vimos contagiados por la fiebre de Pokémon GO, un videojuego que consistía en buscar y capturar diferentes personajes de la saga japonesa y que, en su momento más álgido, alcanzó la astronómica cifra de 45 millones de usuarios diarios activos.
 
-Por lo general, cuando tienes unas gafas en las que la pantalla es el propio móvil, el smartphone también hace las veces de ordenador gestionando todo lo que ves. El resto de modelos suelen conectarse a un ordenador portátil o de sobremesa para que sean ellos quienes se encargue de cargar y mover el entorno virtual.
-
-Las gafas de realidad virtual te cubren los ojos de manera que sólo puedas ver lo que hay en pantalla. Tienen unos sensores que reconocen el movimiento de tu cabeza, de manera que cuando la gires hacia un lado hagas el mismo movimiento dentro del mundo o menú virtual en el que estás. Además de las gafas también, es recomendado tener unos auriculares para conseguir una experiencia más inmersiva.
-
-Con todo, cuando estés utilizando unas gafas de realidad virtual, los auriculares te ayudarán a orientarte sabiendo de qué dirección vienen los sonidos, mientras que moviendo la cabeza puedes moverte también dentro del mundo virtual. Algunos modelos incluyen un mando con el que interactuar apuntando dentro del entorno virtual o activar los objetos o menús.
-<br>
-<image src="https://rotulosmetalarte.es/wp-content/uploads/2021/10/Neon-Flexible-gafas-de-realidad-virtual-Neon-Flex-virtual-reality-glasses-2.jpg", style="width: 230px; height: 250px; padding: 30px;"></image>
-<br>
-<font face="Arial Black", size="5">QUE ES LA REALIDAD AUMENTADA</font>
-<br>
-La realidad aumentada o AR se diferencia del resto por ser en la se complementa el entorno real con objetos digitales. Vamos, que ves todo lo que tienes a tu alrededor, pero el ordenador de el equipo que lleves frente a los ojos podrá reproducir sobre este entorno objetos, animaciones o datos que realmente no están ahí.
-
-Esto permite, por ejemplo poder ver cómo quedaría un mueble en tu habitación, algo que ya están utilizando algunas empresas. Si te gustan los juegos, también te permite recorrer las calles de tu ciudad capturando con tu móvil unos Pokémon que realmente no están ahí.
-<br>
-<image src="https://i.blogs.es/49d389/ikea-realidad-aumentada/1366_2000.png", style="width: 450px; height: 450px; padding: 30px;"></image>
-<br>
-Para crear este tipo de realidad medio real y medio digital pueden utilizarse gafas especialmente diseñadas para ello, cascos o las lentes de tu teléfono móvil. En el caso de las gafas piensa en las Google Glass, que tienen un cristal transparente para que veas lo que tienes a tu alrededor, pero pudiendo superponer información sobre cualquier objeto.
-
-Tanto en el caso de las gafas como el de los cascos por lo tanto hará falta que haya una CPU que gestione la realidad virtual que se imprime sobre la real. Esta puede estar incluida en el dispositivo, pero también podría ser suficiente con conectarse a un ordenador externo que se encargue del trabajo. En cualquier caso, el punto en común entre gafas o casco es que tendrán que tener unas lentes lo suficientemente transparentes para ver tu entorno a través de ellas.
-
-Por otro lado también puedes utilizar la realidad aumentada en dispositivos móviles como smartphones. Estos utilizan sus cámaras para mostrarte en pantalla los elementos físicos reales que estás viendo, pero también gestionan con sus procesadores elementos digitales que se reproduzcan de manera que parezca que estén interactuando con el entorno real. Un buen ejemplo de este tipo de aplicaciones es el juego de Pokémon Go, que popularizó hace unos meses la realidad aumentada.
-
-Al estar interactuando las imágenes digitales con un entorno real, en este tipo de tecnología no es tan importante el tener unos auriculares estéreo. Tampoco son estrictamente necesarios los mandos ni métodos de control, aunque esto ya dependerá de cada aplicación y de cómo tengas que utilizarla.
-<br>
-<image src="https://thumbs.dreamstime.com/b/se%C3%B1al-de-ne%C3%B3n-auriculares-realidad-virtual-dise%C3%B1o-juegos-innovaci%C3%B3n-tecnol%C3%B3gica-cartel-brillante-noche-colorido-luz-203654068.jpg",  style="width: 450px; height: 350px; padding: 30px;"></image>
-<br>
-QUE PASA QUIERES MAS INFORMACION?
-<br>
-PUES NO TE PREOCUPES AQUI TIENES VIDEOS PARA INFORMARTE MAS EN VR Y RV
+Pokémon GO popularizó la RA, la acercó al gran público —a todos los públicos—, pero por aquel entonces ya eran muchas las empresas de muy diversos sectores (sanidad, educación, arquitectura, servicios, retail, etc.) que la empezaban a utilizar con el objetivo de crear experiencias de valor para sus clientes.
 </div>
-    <br>
-   <div align="center"> <font face="Arial Black", size="5">REALIDAD VIRTUAL A FONDO QUE ES?</font> </div>
+<br>
+<br>
+<font face="Arial Black", size="5"><div Align="center">10 APLICACIONES DE REALIDAD VIRTUAL</div> </font>
+<br>
+<div align="center">¿Te imaginas disfrutar de un cóctel aderezado con un toque de RA? Recientemente, se ha inaugurado en Washington el primer museo-bar con esta tecnología en todo EE. UU. En tan solo seis meses, por su puerta han cruzado más de 100.000 visitantes. Y es que en 2018 las aplicaciones de RA son tan innumerables como sorprendentes: desde permitirnos saber cuál es el estilo arquitectónico del edificio que tenemos delante, a darle vida a un cuadro de Monet o, en un plano diferente, poder visualizar el informe de un paciente en plena operación. Si estos te saben a poco, no te pierdas ninguno de los siguientes ejemplos de Realidad Aumentada:</div>
+<br>
+<div align="right">
+<br>
+<div align="left"><a>Cirguia Al detalle</a> </div>
+<br>
+<br>
+<a>Coches a medida</a>
+<br>
+<br>
+<br>
+<div align="left"><a>Lecciones que cobran vida</a> </div>
+<br>
+<br>
+<a>Deportistas atentos</a>
+<br>
+<br>
+<br>
+<div align="left"><a>Traducciones inmediatas</a> </div>
+<br>
+<br>
+<a>Escaneres Faciales</a>
+<br>
+<br>
+<br>
+<div align="left"><a>Arquitectura Inteligente</a> </div>
+<br>
+<br>
+<a>Perfecta Publicidad</a>
+<br>
+<br>
+<br>
+<div align="left"><a>El Universo mas cerca</a> </div>
+<br>
+<br>
+<a>Aptos solo para la nasa</a>
+<br>
+<br>
+<br>
+</div>
+<div align="center">La RA tampoco ha pasado desapercibida a los ojos de los grandes gigantes tecnológicos. A través de gafas, smartphones y tabletas —estos dos últimos han resultado ser sus dos grandes aliados—, compiten entre ellos para inventar la plataforma, el kit de herramientas, el wearable o la app que nos enganche definitivamente.</div>
+<br>
+<div align="center"> <font face="Arial Black", size="5">DIFERENCIAS DE REALIDAD AUMENTADA Y REALIDAD VIRTUAL</font> </div>
+<br>
+<div align="center">A pesar de estar entrelazadas, plantean revoluciones diferentes. Mientras que la Realidad Virtual permite crear un mundo virtual desde cero con todo lo que queramos, pero un mundo fantástico, lo que hace la Realidad Aumentada es agregar elementos virtuales (información adicional en forma de gráficos o imágenes) a nuestro entorno real.
+
+  El director ejecutivo de Apple, Tim Cook, lo tiene muy claro: "La Realidad Aumentada (RA) abarca más que la Realidad Virtual (VR) porque nos da la posibilidad de estar presentes y de comunicarnos y, simultáneamente, de disfrutar de otras cosas a nivel visual. Será la próxima revolución, como en su momento lo fue el smartphone".
+  
+  A día de hoy, el alcance de la RA tanto en el entorno laboral como en el personal es incuestionable, pero, ¿llegará 'otro Pokemon GO' que garantice definitivamente el futuro de esta tecnología?</div>
   <br>
-   <div align="center"><a id="Neon", href="https://youtu.be/277tiZpwv88">Click Aqui</a> </div>
-   <br>
-   <br>
-   <br>
-   <div align="center"> <font face="Arial Black", size="5">REALIDAD AUMENTADA A FONDO QUE ES?</font> </div>
-  <br>
-   <div align="center"><a id="Neon", href="https://youtu.be/-qb4YkhRO58">Click Aqui</a> </div>
-   <br>
-    </font>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Text Animation CSS</title>
-</head>
-
-<style>
-  body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    background: #000;
-}
-.container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-flex;
-    filter: brightness(300%);
-    overflow: hidden;
-}
-.txt{
-    color: #fff;
-    background: #000;
-    font-size: 150px;
-    font-weight: bold;
-}
-.txt:before{
-    content: 'Jorge&Josue';
-    position: absolute;
-    mix-blend-mode: difference;
-    filter: blur(2px);
-}
-.txt_gradient{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: multiply;
-    background: linear-gradient(114.5793141156962deg, 
-                rgb(6, 112, 250) 4.927083333333334%,
-                rgb(255, 0, 64) 97.84374999999999%);
-}
-.txt_dodge{
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    right: 0;
-    bottom: 0;
-    mix-blend-mode: color-dodge;
-    background: radial-gradient(circle,white,black 35%) 
-                center / 25% 25%;
-    animation: neon 3s linear infinite;
-}
-@keyframes neon{
-    to{
-        transform: translate(50%, 50%);
-    }
-}
-.colorplate {
-    position: absolute;
-    background: #292463;
-    top: 0;
-    width: 100%;
-    text-align: right;
-    padding: 15px 15px;
-}
-.colorplate span {
-    display: inline-block;
-    padding: 5px 15px;
-    cursor: pointer;
-    border-radius: 50px;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-span{
-	background: #9b59b6;
-}
-span#POMEGRANATE{
-	background: #c0392b;
-}
-a {
-    display: inline-block;
-    position: relative;
-    padding: 20px 60px;
-    letter-spacing: 5px;
-    text-decoration: none;
-    font-size: 24px;
-    text-transform: uppercase;
-    overflow: hidden;
-    color: #0ab0ff;
-    transition: 0.5s;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
-}
-a:hover{
-	background: #0ab0ff;
-	cursor: pointer;
-	color: #443bab;
-	box-shadow: 0 0 5px #0ab0ff,
-				0 0 25px #00aefffb,
-				0 0 50px #0ab0ff,
-				0 0 200px #0ab0ff;
-}
-a span{
-	position: absolute;
-	display: block;
-}
-/**/
-a span:nth-child(1){
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(90deg, transparent,#0ab0ff);
-	animation: animate1 1s linear infinite;
-}
-@keyframes animate1
-{
-	0%
-	{
-		left: -100%;
-	}
-	50%,100%
-	{
-		left: 100%;	
-	}
-}
-/**/
-a span:nth-child(2){
-	top: -100%;
-	right: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(180deg, transparent,#0ab0ff);
-	animation: animate2 1s linear infinite;
-	animation-delay: 0.25s
-}
-@keyframes animate2
-{
-	0%
-	{
-		top: -100%;
-	}
-	50%,100%
-	{
-		top: 100%;
-	}
-}
-/**/
-a span:nth-child(3){
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(270deg, transparent,#0ab0ff);
-	animation: animate3 1s linear infinite;
-	animation-delay: 0.5s;
-}
-@keyframes animate3
-{
-	0%
-	{
-		right: -100%;
-	}
-	50%,100%
-	{
-		right: 100%;	
-	}
-}
-/**/
-a span:nth-child(4){
-	bottom: -100%;
-	left: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(360deg, transparent,#0ab0ff);
-	animation: animate4 1s linear infinite;
-	animation-delay: 0.75s;
-}
-@keyframes animate4
-{
-	0%
-	{
-		bottom: -100%;
-	}
-	50%,100%
-	{
-		bottom: 100%;	
-	}
-}
-
-
-/**/
-a {
-    display: inline-block;
-    position: relative;
-    padding: 20px 60px;
-    letter-spacing: 5px;
-    text-decoration: none;
-    font-size: 24px;
-    text-transform: uppercase;
-    overflow: hidden;
-    color: #0ab0ff;
-    transition: 0.5s;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
-}
-a:hover{
-	background: #0ab0ff;
-	cursor: pointer;
-	color: #443bab;
-	box-shadow: 0 0 5px #0ab0ff,
-				0 0 25px #0ab0ff,
-				0 0 50px #0ab0ff,
-				0 0 200px #0ab0ff;
-}
-a span{
-	position: absolute;
-	display: block;
-}
-/**/
-a span:nth-child(1){
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(90deg, transparent,#0ab0ff);
-	animation: animate1 1s linear infinite;
-}
-@keyframes animate1
-{
-	0%
-	{
-		left: -100%;
-	}
-	50%,100%
-	{
-		left: 100%;	
-	}
-}
-/**/
-a span:nth-child(2){
-	top: -100%;
-	right: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(180deg, transparent,#0ab0ff);
-	animation: animate2 1s linear infinite;
-	animation-delay: 0.25s
-}
-@keyframes animate2
-{
-	0%
-	{
-		top: -100%;
-	}
-	50%,100%
-	{
-		top: 100%;
-	}
-}
-/**/
-a span:nth-child(3){
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(270deg, transparent,#0ab0ff);
-	animation: animate3 1s linear infinite;
-	animation-delay: 0.5s;
-}
-@keyframes animate3
-{
-	0%
-	{
-		right: -100%;
-	}
-	50%,100%
-	{
-		right: 100%;	
-	}
-}
-/**/
-a span:nth-child(4){
-	bottom: -100%;
-	left: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(360deg, transparent,#0ab0ff);
-	animation: animate4 1s linear infinite;
-	animation-delay: 0.75s;
-}
-@keyframes animate4
-{
-	0%
-	{
-		bottom: -100%;
-	}
-	50%,100%
-	{
-		bottom: 100%;	
-	}
-}
-</style>
-
-<body>
-    <div class="container">
-        <span class="txt">Jorge&Josue</span>
-        <span class="txt_gradient"></span>
-        <span class="txt_dodge"></span>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div align="center"> <font face="Arial Black", size="5", color="White">DIFERENCIAS ENTRE REALIDAD AUMENTADA Y REALIDAD VIRTUAL</font> </div>
-    <br>
-    <font color="White">
 <div align="center">
-  La real virtual o VR se diferencia del resto por ser en la que te sumerges por completo en un mundo virtual. Esto quiere decir que te permite simular una experiencia sensorial completa dentro de un ambiente artificial sin que veas nada de lo que hay en el exterior. Para "meterte dentro" de este mundo virtual sueles necesitar tanto unas gafas especiales como unos auriculares.
-
-Estas gafas tienen que estar especialmente diseñadas para esta realidad, y tener una pantalla que se monte justo delante de tus ojos. Hay dos tipos de gafas, las que tienen su propia pantalla incorporada como las Oculus Rift o las que necesitan que incorpores un smartphone para hacer de pantalla, como por ejemplo las Gear VR de Samsung.
-
-Por lo general, cuando tienes unas gafas en las que la pantalla es el propio móvil, el smartphone también hace las veces de ordenador gestionando todo lo que ves. El resto de modelos suelen conectarse a un ordenador portátil o de sobremesa para que sean ellos quienes se encargue de cargar y mover el entorno virtual.
-
-Las gafas de realidad virtual te cubren los ojos de manera que sólo puedas ver lo que hay en pantalla. Tienen unos sensores que reconocen el movimiento de tu cabeza, de manera que cuando la gires hacia un lado hagas el mismo movimiento dentro del mundo o menú virtual en el que estás. Además de las gafas también, es recomendado tener unos auriculares para conseguir una experiencia más inmersiva.
-
-Con todo, cuando estés utilizando unas gafas de realidad virtual, los auriculares te ayudarán a orientarte sabiendo de qué dirección vienen los sonidos, mientras que moviendo la cabeza puedes moverte también dentro del mundo virtual. Algunos modelos incluyen un mando con el que interactuar apuntando dentro del entorno virtual o activar los objetos o menús.
-<br>
-<image src="https://rotulosmetalarte.es/wp-content/uploads/2021/10/Neon-Flexible-gafas-de-realidad-virtual-Neon-Flex-virtual-reality-glasses-2.jpg", style="width: 230px; height: 250px; padding: 30px;"></image>
-<br>
-<font face="Arial Black", size="5">QUE ES LA REALIDAD AUMENTADA</font>
-<br>
-La realidad aumentada o AR se diferencia del resto por ser en la se complementa el entorno real con objetos digitales. Vamos, que ves todo lo que tienes a tu alrededor, pero el ordenador de el equipo que lleves frente a los ojos podrá reproducir sobre este entorno objetos, animaciones o datos que realmente no están ahí.
-
-Esto permite, por ejemplo poder ver cómo quedaría un mueble en tu habitación, algo que ya están utilizando algunas empresas. Si te gustan los juegos, también te permite recorrer las calles de tu ciudad capturando con tu móvil unos Pokémon que realmente no están ahí.
-<br>
-<image src="https://i.blogs.es/49d389/ikea-realidad-aumentada/1366_2000.png", style="width: 450px; height: 450px; padding: 30px;"></image>
-<br>
-Para crear este tipo de realidad medio real y medio digital pueden utilizarse gafas especialmente diseñadas para ello, cascos o las lentes de tu teléfono móvil. En el caso de las gafas piensa en las Google Glass, que tienen un cristal transparente para que veas lo que tienes a tu alrededor, pero pudiendo superponer información sobre cualquier objeto.
-
-Tanto en el caso de las gafas como el de los cascos por lo tanto hará falta que haya una CPU que gestione la realidad virtual que se imprime sobre la real. Esta puede estar incluida en el dispositivo, pero también podría ser suficiente con conectarse a un ordenador externo que se encargue del trabajo. En cualquier caso, el punto en común entre gafas o casco es que tendrán que tener unas lentes lo suficientemente transparentes para ver tu entorno a través de ellas.
-
-Por otro lado también puedes utilizar la realidad aumentada en dispositivos móviles como smartphones. Estos utilizan sus cámaras para mostrarte en pantalla los elementos físicos reales que estás viendo, pero también gestionan con sus procesadores elementos digitales que se reproduzcan de manera que parezca que estén interactuando con el entorno real. Un buen ejemplo de este tipo de aplicaciones es el juego de Pokémon Go, que popularizó hace unos meses la realidad aumentada.
-
-Al estar interactuando las imágenes digitales con un entorno real, en este tipo de tecnología no es tan importante el tener unos auriculares estéreo. Tampoco son estrictamente necesarios los mandos ni métodos de control, aunque esto ya dependerá de cada aplicación y de cómo tengas que utilizarla.
-<br>
-<image src="https://thumbs.dreamstime.com/b/se%C3%B1al-de-ne%C3%B3n-auriculares-realidad-virtual-dise%C3%B1o-juegos-innovaci%C3%B3n-tecnol%C3%B3gica-cartel-brillante-noche-colorido-luz-203654068.jpg",  style="width: 450px; height: 350px; padding: 30px;"></image>
-<br>
-QUE PASA QUIERES MAS INFORMACION?
-<br>
-PUES NO TE PREOCUPES AQUI TIENES VIDEOS PARA INFORMARTE MAS EN VR Y RV
+  <image src="https://laverdadnoticias.com/__export/1638028639294/sites/laverdad/img/2021/11/27/apple_tendra_su_casco_de_realidad_virtual_para_el_siguiente_ano.jpg_1489003186.jpg", style="width: 450px; height: 250px; padding: 30px;"></image>
 </div>
-    <br>
-   <div align="center"> <font face="Arial Black", size="5">REALIDAD VIRTUAL A FONDO QUE ES?</font> </div>
-  <br>
-   <div align="center"><a id="Neon", href="https://youtu.be/277tiZpwv88">Click Aqui</a> </div>
-   <br>
-   <br>
-   <br>
-   <div align="center"> <font face="Arial Black", size="5">REALIDAD AUMENTADA A FONDO QUE ES?</font> </div>
-  <br>
-   <div align="center"><a id="Neon", href="https://youtu.be/-qb4YkhRO58">Click Aqui</a> </div>
-   <br>
-    </font>
+</font>
+
 </body>
 </html>
